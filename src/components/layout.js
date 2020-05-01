@@ -30,6 +30,12 @@ const Layout = ({ children }) => {
             line-height: 1.4;
           }
 
+          hr {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+          }
+
           /** remove margin for the main div gatsby */
           > div {
             margin-top: 0;

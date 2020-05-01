@@ -1,20 +1,29 @@
 import React from 'react';
 import { Link } from 'gatsby';
 import Layout from '../components/layout';
+import usePosts from '../hooks/use-posts';
+import PostPreview from '../components/post-preview';
 
-function Home() {
+const Home = () => {
+  const posts = usePosts();
+
   return (
     <Layout>
       <h1>Home</h1>
       <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit
-        temporibus iusto distinctio repudiandae veniam ut deserunt eos sint
-        molestias, qui, fuga ex perferendis similique magnam est, nulla
-        architecto beatae laboriosam?
+        Hello{' '}
+        <span role="img" aria-label="wave">
+          👋
+        </span>{' '}
+        <Link to="/about">learn about me &rarr;</Link>
       </p>
-      <Link to="/about">learn about me &rarr;</Link>
+      <hr />
+      <h2>Read my blog</h2>
+      {posts.map(post => (
+        <PostPreview key={post.slug} post={post} />
+      ))}
     </Layout>
   );
-}
+};
 
 export default Home;
